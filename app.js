@@ -11,6 +11,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var helloRouter = require('./routes/hello'); // nasz router
+var aboutRouter = require('./routes/about'); // nasz router
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.use('/users', usersRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/hello', helloRouter); // mapowanie sciezki na router
+app.use('/about', aboutRouter); // mapowanie sciezki na router
 
 app.get('/hello/:user', (req, res) => {
     let user = req.params["user"];
