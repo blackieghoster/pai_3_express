@@ -32,8 +32,13 @@ app.use('/users', usersRouter);
 app.use('/hello', helloRouter); // mapowanie sciezki na router
 
 app.get('/hello/:user', (req, res) => {
-  res.send('World ' + req.params["user"] + '!');
+  res.send(`Witaj ${name.charAt(0).toUpperCase() + name.slice(1)}!`);
 })
+
+app.get('/hello', (req, res) => {
+  const name = req.query.name;
+  res.send(`Witaj ${name.charAt(0).toUpperCase() + name.slice(1)}!`);
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
